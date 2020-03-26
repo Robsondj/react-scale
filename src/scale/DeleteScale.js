@@ -6,7 +6,7 @@ import DeleteIcon from 'material-ui-icons/Delete'
 import Dialog, {DialogActions, DialogContent, DialogContentText, DialogTitle} from 'material-ui/Dialog'
 import auth from './../auth/auth-helper'
 import {remove} from './api-scale.js'
-import {Redirect, Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 class DeleteScale extends Component {
   

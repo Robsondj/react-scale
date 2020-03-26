@@ -6,7 +6,6 @@ import List, {ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText} f
 import Avatar from 'material-ui/Avatar'
 import IconButton from 'material-ui/IconButton'
 import Typography from 'material-ui/Typography'
-import ArrowForward from 'material-ui-icons/ArrowForward'
 import Add from 'material-ui-icons/Add'
 import Edit from 'material-ui-icons/Edit'
 import Person from 'material-ui-icons/Person'

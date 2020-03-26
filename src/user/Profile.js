@@ -5,7 +5,6 @@ import Paper from 'material-ui/Paper'
 import List, {ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText} from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import IconButton from 'material-ui/IconButton'
-import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
 import Edit from 'material-ui-icons/Edit'
 import Person from 'material-ui-icons/Person'
@@ -74,7 +73,7 @@ class Profile extends Component {
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary={this.state.user.name} secondary={this.state.user.email}/> {
-             auth.isAuthenticated().user && auth.isAuthenticated().user._id == this.state.user._id && 
+             auth.isAuthenticated().user && auth.isAuthenticated().user._id === this.state.user._id && 
               (<ListItemSecondaryAction>
                 <Link to={"/user/edit/" + this.state.user._id}>
                   <IconButton aria-label="Edit" color="primary">
