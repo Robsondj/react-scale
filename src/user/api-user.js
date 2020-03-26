@@ -1,5 +1,7 @@
+import config from './../config/config.js'
+
 const create = (user) => {
-  return fetch('http://localhost:4000/api/users/', {
+  return fetch(`${config.urlApi}/api/users/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -13,7 +15,7 @@ const create = (user) => {
 }
 
 const list = () => {
-  return fetch('http://localhost:4000/api/users/', {
+  return fetch(`${config.urlApi}/api/users/`, {
     method: 'GET',
   }).then(response => {
     return response.json()
@@ -21,7 +23,7 @@ const list = () => {
 }
 
 const read = (params, credentials) => {
-  return fetch('http://localhost:4000/api/users/' + params.userId, {
+  return fetch(`${config.urlApi}/api/users/` + params.userId, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -34,7 +36,7 @@ const read = (params, credentials) => {
 }
 
 const update = (params, credentials, user) => {
-  return fetch('http://localhost:4000/api/users/' + params.userId, {
+  return fetch(`${config.urlApi}/api/users/` + params.userId, {
     method: 'PUT',
     headers: {
       'Accept': 'application/json',
@@ -48,7 +50,7 @@ const update = (params, credentials, user) => {
 }
 
 const remove = (params, credentials) => {
-  return fetch('http://localhost:4000/api/users/' + params.userId, {
+  return fetch(`${config.urlApi}/api/users/` + params.userId, {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',

@@ -1,5 +1,7 @@
+import config from './../config/config.js'
+
 const create = (credentials, scale) => {
-  return fetch('http://localhost:4000/api/scales/', {
+  return fetch(`${config.urlApi}/api/scales/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -14,7 +16,7 @@ const create = (credentials, scale) => {
 }
 
 const list = () => {
-  return fetch('http://localhost:4000/api/scales/', {
+  return fetch(`${config.urlApi}/api/scales/`, {
     method: 'GET',
   }).then(response => {
     return response.json()
@@ -22,7 +24,7 @@ const list = () => {
 }
 
 const read = (params, credentials) => {
-  return fetch('http://localhost:4000/api/scales/' + params.scaleId, {
+  return fetch(`${config.urlApi}/api/scales/` + params.scaleId, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -35,7 +37,7 @@ const read = (params, credentials) => {
 }
 
 const update = (params, credentials, scale) => {
-  return fetch('http://localhost:4000/api/scales/' + params.scaleId, {
+  return fetch(`${config.urlApi}/api/scales/` + params.scaleId, {
     method: 'PUT',
     headers: {
       'Accept': 'application/json',
@@ -49,7 +51,7 @@ const update = (params, credentials, scale) => {
 }
 
 const remove = (params, credentials) => {
-  return fetch('http://localhost:4000/api/scales/' + params.scaleId, {
+  return fetch(`${config.urlApi}/api/scales/` + params.scaleId, {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',

@@ -1,6 +1,8 @@
+import config from './../config/config.js'
+
 const signin = (user) => {
   console.log(user);
-  return fetch('http://localhost:4000/auth/signin/', {
+  return fetch(`${config.urlApi}/auth/signin/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -15,7 +17,7 @@ const signin = (user) => {
 }
 
 const signout = () => {
-  return fetch('http://localhost:4000/auth/signout/', {
+  return fetch(`${config.urlApi}/auth/signout/`, {
     method: 'GET',
   }).then(response => {
       return response.json()
