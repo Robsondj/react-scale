@@ -10,6 +10,9 @@ import auth from './../auth/auth-helper'
 import {create} from './api-scale.js'
 import Dialog, {DialogActions, DialogContent, DialogContentText, DialogTitle} from 'material-ui/Dialog'
 import {Link} from 'react-router-dom'
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
 
 const styles = theme => ({
   card: {
@@ -39,7 +42,7 @@ const styles = theme => ({
 
 class AddScale extends Component {
   state = {
-      day: '',
+      day: new Date(),
       department: '',
       scaleds: '',
       open: false,
@@ -49,6 +52,12 @@ class AddScale extends Component {
   handleChange = name => event => {
     this.setState({[name]: event.target.value})
   }
+
+  handleChangeDate = date => {
+    this.setState({
+      day: date
+    });
+  };
 
   clickSubmit = () => {
     const jwt = auth.isAuthenticated()
@@ -76,7 +85,7 @@ class AddScale extends Component {
           <Typography type="headline" component="h2" className={classes.title}>
             Add Scale
           </Typography>
-          <TextField id="day" label="Day" className={classes.textField} value={this.state.day} onChange={this.handleChange('day')} margin="normal"/><br/>
+          <DatePicker id="day" label="Scale Date" className={classes.textField} dateFormat="dd/MM/yyyy" selected={this.state.day} onChange={this.handleChangeDate} margin="normal"/><br/>
           <TextField id="department" type="department" label="Department" className={classes.textField} value={this.state.department} onChange={this.handleChange('department')} margin="normal"/><br/>
           <TextField id="scaleds" type="scaleds" label="Scaleds" className={classes.textField} value={this.state.scaleds} onChange={this.handleChange('scaleds')} margin="normal"/>
           <br/> {

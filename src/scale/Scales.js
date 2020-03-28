@@ -67,7 +67,7 @@ class Scales extends Component {
                           <Person/>
                         </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary={item.department} secondary={item.scaleds}/>
+                      <ListItemText primary={item.department} secondary={item.scaleds} />
                       <ListItemSecondaryAction>
                         <Link to={"/scale/edit/" + item._id}>
                           <IconButton aria-label="Edit" color="primary">
@@ -78,8 +78,8 @@ class Scales extends Component {
                       </ListItemSecondaryAction>
                     </ListItem>
                     <ListItem>
-                      <ListItemText primary={"Created at : " + (
-                        new Date(item.created)).toDateString()}/>
+                      <ListItemText primary={"Scale date : " + (
+                        new Date(item.day)).toDateString()}/>
                     </ListItem>
                     <Divider/>
                  </List>

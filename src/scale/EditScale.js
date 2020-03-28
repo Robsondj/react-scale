@@ -9,6 +9,9 @@ import {withStyles} from 'material-ui/styles'
 import auth from './../auth/auth-helper'
 import {read, update} from './api-scale.js'
 import {Redirect} from 'react-router-dom'
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
 
 const styles = theme => ({
   card: {
@@ -57,7 +60,7 @@ class EditScale extends Component {
       if (data.error) {
         this.setState({error: data.error})
       } else {
-        this.setState({day: data.day, department: data.department, scaleds: data.scaleds})
+        this.setState({day: new Date(data.day), department: data.department, scaleds: data.scaleds})
       }
     })
   }
@@ -86,6 +89,12 @@ class EditScale extends Component {
     this.setState({[name]: event.target.value})
   }
 
+  handleChangeDate = date => {
+    this.setState({
+      day: date
+    });
+  };
+
   render() {
     const {classes} = this.props
     if (this.state.redirectToScale) {
@@ -97,7 +106,7 @@ class EditScale extends Component {
           <Typography type="headline" component="h2" className={classes.title}>
             Edit Scale
           </Typography>
-          <TextField id="day" label="Day" className={classes.textField} value={this.state.day} onChange={this.handleChange('day')} margin="normal"/><br/>
+          <DatePicker id="day" label="Scale Date" className={classes.textField} dateFormat="dd/MM/yyyy" selected={this.state.day} onChange={this.handleChangeDate} margin="normal"/><br/>
           <TextField id="department" label="Email" className={classes.textField} value={this.state.department} onChange={this.handleChange('department')} margin="normal"/><br/>
           <TextField id="scaleds" label="Scaleds" className={classes.textField} value={this.state.scaleds} onChange={this.handleChange('scaleds')} margin="normal"/>
           <br/> {
